@@ -41,7 +41,10 @@
                             public $color = "";
                             public $motor = 0;
                 
-                            /** Constructor de clase */
+                            /** Constructor de clase vacío para utilizar setters */
+                            function __constructVoid(){}
+                                   
+                            /** Constructor de clase con todos los atributos */
                             function __construct(int $ruedas, string $color, int $motor)
                             {
                                 $this-> ruedas = $ruedas;
@@ -105,9 +108,15 @@
                         
                         /** Instancia de la clase Coche */
                         $coche1 = new Coche($infoRuedas = $_POST['ruedas'], $infoColor = $_POST['color'], $infoMotor = $_POST['motor']);
+                        /** Mostramos los datos */
                         $coche1->mostrarDatos();
                         echo $coche1;
-                        /** Mostramos los datos */
+                        /** Lenamos la clase mediante el constructor vacío y setters */
+                        $coche1->setRuedas(4);
+                        $coche1->setColor('Amarillo');
+                        $coche1->setMotor(1200);
+                        echo $coche1;
+                        echo "<br><span class='aviso'>Vehículo sobreescrito mediante setters</span>";
                     }
                 ?>
        

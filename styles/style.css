@@ -56,3 +56,8 @@ button{
 .spantxt{
     font-weight: bold;
 }
+
+.aviso{
+    color: red;
+    font-weight: bold;
+}
