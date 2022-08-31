@@ -31,7 +31,9 @@
 
                 <?php
                     
+                    /** Sí se pulsa el btnGuardar entonces ... */
                     if(isset($_POST['btnGuardar'])){
+                        /** Se crea la clase Coche */
                         class Coche
                         {
                             /** Atributos de clase */
@@ -47,6 +49,31 @@
                                 $this-> motor = $motor;
                             }
                 
+                            /** Getters y Setters de clase */
+                            function setRuedas(int $ruedas){
+                                $this->ruedas = $ruedas;
+                            }
+
+                            function setColor(string $color){
+                                $this->color = $color;
+                            }
+
+                            function setMotor(string $motor){
+                                $this->motor = $motor;
+                            }
+
+                            function getRuedas(){
+                                return $this->ruedas;
+                            }
+
+                            function getColor(){
+                                return $this->color;
+                            }
+
+                            function getMotor(){
+                                return $this->motor;
+                            }
+
                             /** Funciones de clase */
                             function arrancar(){
                                 echo "Arranque completado con éxito.<br>";
@@ -61,20 +88,30 @@
                             }
 
                             function mostrarDatos(){
-                                echo "<br><span class='spantitulo'>Coche guardado con éxito, datos almacenados:</span><br>";
+                                echo "<br><span class='spantitulo'>Información obtenida mediante función</span><br>";
                                 echo "<span class='spantxt'>Número de ruedas: $this->ruedas</span><br>";
                                 echo "<span class='spantxt'>Color del vehículo: $this->color</span><br>";
                                 echo "<span class='spantxt'>Cilindrada del motor: $this->motor</span>";
+                            }
+
+                            function __toString()
+                            {
+                                return  "<br><br><span class='spantitulo'>Información generada mediante __toString</span>".
+                                        "<br><span class='spantxt'>Número de ruedas: ".$this->ruedas. "</span><br>".
+                                        "<span class='spantxt'>Color del vehículo: ".$this->color. "</span><br>".
+                                        "<span class='spantxt'>Cilindrada del motor: ".$this->motor. ".</span>";
                             }
                         }
                         
                         /** Instancia de la clase Coche */
                         $coche1 = new Coche($infoRuedas = $_POST['ruedas'], $infoColor = $_POST['color'], $infoMotor = $_POST['motor']);
                         $coche1->mostrarDatos();
+                        echo $coche1;
                         /** Mostramos los datos */
                     }
                 ?>
        
+
             </div>
         </div>
 
